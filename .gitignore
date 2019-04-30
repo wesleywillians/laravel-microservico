@@ -1,0 +1,17 @@
+/app/node_modules
+/app/public/hot
+/app/public/storage
+/app/storage/*.key
+/app/vendor
+/app/.env
+/app/.phpunit.result.cache
+/app/Homestead.json
+/app/Homestead.yaml
+/app/npm-debug.log
+/app/yarn-error.log
+/app/.idea
+/app/.phpstorm.meta.php
+/app/.editorconfig
+/app/_ide_helper.php
+.docker/
+/app/composer.lock
