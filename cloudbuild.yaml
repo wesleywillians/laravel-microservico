@@ -1,0 +1,46 @@
+steps:
+- id: "Installing docker-compose"
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/docker-compose:latest'
+  - '.'
+
+- id: "Running docker-compose"
+  name: 'gcr.io/$PROJECT_ID/docker-compose'
+  args: ['-f','docker-compose.yaml','up','-d','--build']  
+
+- id: "Running migrations"
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'exec'
+  - '-t'
+  - 'app'
+  - 'php'
+  - '/var/www/artisan'
+  - 'migrate'
+
+- id: "Running db seeds"
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'exec'
+  - '-t'
+  - 'app'
+  - 'php'
+  - '/var/www/artisan'
+  - 'db:seed'
+
+- id: "Running tests"
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'exec'
+  - '-t'
+  - 'app'
+  - 'php'
+  - '/var/www/vendor/bin/phpunit' 
+  - '-c'
+  - '/var/www/phpunit.xml'
+
+images:
+- 'gcr.io/$PROJECT_ID/docker-compose:latest'
