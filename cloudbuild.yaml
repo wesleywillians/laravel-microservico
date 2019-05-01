@@ -9,7 +9,12 @@ steps:
 
 - id: "Running docker-compose"
   name: 'gcr.io/$PROJECT_ID/docker-compose'
-  args: ['-f','docker-compose.yaml','up','-d','--build']  
+  args: ['-f','docker-compose.yml','up','-d','--build']
+
+- id: "Running ps"
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'ps'
 
 - id: "Running migrations"
   name: 'gcr.io/cloud-builders/docker'
