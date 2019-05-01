@@ -17,5 +17,5 @@
 //
 //Auth::routes(['register' => false]);
 Route::get('/', function () {
-    return [1, 2, 3, 4, 5, 'dev','master','master2','master3','master4','master5'];
+    return [1, 2, 3, 4, 5];
 });
