@@ -7,7 +7,7 @@ services:
     container_name: app
     working_dir: /application
     # volumes:
-    #   - ./app/:/var/www
+      # - ./app/:/var/www
     networks:
       - app-network
     environment:
@@ -54,7 +54,6 @@ services:
       - MYSQL_USER=root
     volumes:
       - ./.docker/dbdata:/var/lib/mysql
-      - ./.docker/mysql/conf.d:/etc/mysql/conf.d
     networks:
       - app-network
     healthcheck:
