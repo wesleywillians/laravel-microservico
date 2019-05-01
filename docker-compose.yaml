@@ -6,8 +6,8 @@ services:
     build: ./app
     container_name: app
     working_dir: /application
-    volumes:
-      - ./app/:/var/www
+    # volumes:
+    #   - ./app/:/var/www
     networks:
       - app-network
     environment:
