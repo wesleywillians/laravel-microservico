@@ -17,5 +17,5 @@
 //
 //Auth::routes(['register' => false]);
 Route::get('/', function () {
-    return [1, 2, 3, 4, 5];
+    return [1, 2, 3, 4, 5, 6];
 });
